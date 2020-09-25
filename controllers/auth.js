@@ -2,7 +2,7 @@ const User = require("../models/user");
 const { validationResult } = require("express-validator");
 var jwt = require("jsonwebtoken");
 var expressJwt = require("express-jwt");
-const { SECRET } = require('../keys')
+const { SECRET } = require('../config/keys')
 
 exports.signup = (req, res) => {
   const errors = validationResult(req);

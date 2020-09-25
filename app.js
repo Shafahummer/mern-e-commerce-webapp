@@ -11,7 +11,7 @@ const categoryRoute = require('./routes/category')
 const productRoute = require('./routes/product')
 const orderRoute = require('./routes/order')
 
-const { MONGOURI } = require('./keys')
+const { MONGOURI } = require('./config/keys')
 
 //CCnmNq6qWukpFgK3
 mongoose.connect(MONGOURI, {

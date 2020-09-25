@@ -1,4 +1,6 @@
-import { API } from '../../backend';
+// import { API } from '../../backend';
+
+const API = "https://mern-e-commerce-webapp.herokuapp.com/api"
 
 
 export const createCategory = (userId, token, category) => {
@@ -9,90 +11,90 @@ export const createCategory = (userId, token, category) => {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`
         },
-        body:JSON.stringify(category)
-    }).then(response=>{
+        body: JSON.stringify(category)
+    }).then(response => {
         console.log(response)
         return response.json()
     })
-    .catch(erro=>console.log(erro))
+        .catch(erro => console.log(erro))
 }
 
 //get all categories
-export const getCategories = () =>{
-    return fetch(`${API}/categories`,{
-        method:"GET"
+export const getCategories = () => {
+    return fetch(`${API}/categories`, {
+        method: "GET"
     })
-    .then(response=>{
-        return response.json()
-    })
-    .catch(erro=>console.log(erro))
+        .then(response => {
+            return response.json()
+        })
+        .catch(erro => console.log(erro))
 }
 
 //product calls
-export const createProduct = (userId,token,product) =>{
-    return fetch(`${API}/product/create/${userId}`,{
-        method:"POST",
+export const createProduct = (userId, token, product) => {
+    return fetch(`${API}/product/create/${userId}`, {
+        method: "POST",
         headers: {
             Accept: "application/json",
             Authorization: `Bearer ${token}`
         },
-        body:product
+        body: product
     })
-    .then(response=>{
-        return response.json()
-    })
-    .catch(err=>console.log(err))
+        .then(response => {
+            return response.json()
+        })
+        .catch(err => console.log(err))
 }
 
 
-export const getProducts = () =>{
-    return fetch(`${API}/products`,{
-        method:"GET"
+export const getProducts = () => {
+    return fetch(`${API}/products`, {
+        method: "GET"
     })
-    .then(response=>{
-        return response.json()
-    })
-    .catch(erro=>console.log(erro))
+        .then(response => {
+            return response.json()
+        })
+        .catch(erro => console.log(erro))
 }
 
 //get a product
-export const getProduct = productId =>{
-    return fetch(`${API}/product/${productId}`,{
-        method:"GET"
+export const getProduct = productId => {
+    return fetch(`${API}/product/${productId}`, {
+        method: "GET"
     })
-    .then(response=>{
-        return response.json()
-    })
-    .catch(erro=>console.log(erro))
+        .then(response => {
+            return response.json()
+        })
+        .catch(erro => console.log(erro))
 }
 
 //update a product
-export const updateProduct = (productId, userId,token,product) =>{
-    return fetch(`${API}/product/${productId}/${userId}`,{
-        method:"PUT",
+export const updateProduct = (productId, userId, token, product) => {
+    return fetch(`${API}/product/${productId}/${userId}`, {
+        method: "PUT",
         headers: {
             Accept: "application/json",
             Authorization: `Bearer ${token}`
         },
-        body:product
+        body: product
     })
-    .then(response=>{
-        return response.json()
-    })
-    .catch(err=>console.log(err))
+        .then(response => {
+            return response.json()
+        })
+        .catch(err => console.log(err))
 }
 
 //delete a product
-export const deleteProduct = (productId,userId,token) =>{
-    return fetch(`${API}/product/${productId}/${userId}`,{
-        method:"DELETE",
+export const deleteProduct = (productId, userId, token) => {
+    return fetch(`${API}/product/${productId}/${userId}`, {
+        method: "DELETE",
         headers: {
             Accept: "application/json",
             Authorization: `Bearer ${token}`
         }
     })
-    .then(response=>{
-        return response.json()
-    })
-    .catch(err=>console.log(err))
+        .then(response => {
+            return response.json()
+        })
+        .catch(err => console.log(err))
 }
